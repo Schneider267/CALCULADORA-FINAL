@@ -414,10 +414,22 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_puntoActionPerformed
 
     private void TanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TanActionPerformed
-     double num1=Double.parseDouble(cadnum);
-         etnum1.setText("tan("+cadnum+")");
-         resul=Math.tan(Math.toRadians(num1));
-         cadnum=String.valueOf(resul);
+     double num1 = Double.parseDouble(cadnum);
+etnum1.setText("tan(" + cadnum + ")");
+
+if (num1 == 90) {
+    cadnum = "∞"; // Indicar infinito para tangente de 90 grados
+    opinv = "tangente (90°)";
+} else if (num1 == 270) {
+    cadnum = "-∞"; // Indicar infinito para tangente de 90 grados
+    opinv = "tangente (270°)";
+} else {
+    resul = Math.tan(Math.toRadians(num1));
+    cadnum = String.valueOf(resul);
+    opinv = "tangente";
+}
+etnum.setText(cadnum);
+act=false;
     }//GEN-LAST:event_TanActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
